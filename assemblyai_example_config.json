@@ -1,0 +1,62 @@
+{
+  "agent_name": "Assembly AI Test Agent",
+  "agent_type": "simple_llm_agent",
+  "agent_welcome_message": "Hello! I'm using Assembly AI for speech recognition. How can I help you today?",
+  "tasks": [
+    {
+      "tools_config": {
+        "transcriber": {
+          "provider": "assemblyai",
+          "model": "best",
+          "language": "en",
+          "stream": true,
+          "encoding": "linear16",
+          "sampling_rate": 16000,
+          "keywords": "hello,help,thanks,goodbye"
+        },
+        "synthesizer": {
+          "provider": "elevenlabs",
+          "stream": true,
+          "buffer_size": 100.0,
+          "audio_format": "wav",
+          "provider_config": {
+            "voice": "George",
+            "model": "eleven_turbo_v2_5",
+            "voice_id": "JBFqnCBsd6RMkjVDRZzb"
+          }
+        },
+        "llm_config": {
+          "model": "gpt-3.5-turbo",
+          "max_tokens": 100,
+          "temperature": 0.1,
+          "provider": "openai"
+        }
+      },
+      "toolchain": {
+        "execution": "parallel",
+        "pipelines": [
+          ["transcriber"],
+          ["llm_config"],
+          ["synthesizer"]
+        ]
+      },
+      "task_type": "conversation",
+      "task_config": {
+        "optimize_latency": true,
+        "hangup_after_silence": 20,
+        "incremental_delay": 900,
+        "number_of_words_for_interruption": 1,
+        "interruption_backoff_period": 100,
+        "hangup_after_LLMCall": false,
+        "backchanneling": false,
+        "ambient_noise": false,
+        "call_terminate": 90,
+        "use_fillers": false,
+        "trigger_user_online_message_after": 10,
+        "check_user_online_message": "Hey, are you still there",
+        "check_if_user_online": true,
+        "generate_precise_transcript": false
+      }
+    }
+  ]
+}

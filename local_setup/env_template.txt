@@ -1,0 +1,41 @@
+# Bolna Environment Configuration Template
+# Copy this content to a file named .env in the local_setup directory
+# Replace the placeholder values with your actual API keys
+
+# Assembly AI (ASR) - Required for Assembly AI transcriber
+# Get your API key from: https://www.assemblyai.com/
+ASSEMBLYAI_API_KEY=your_assemblyai_api_key_here
+ASSEMBLYAI_HOST=api.assemblyai.com
+
+# Deepgram (ASR) - Alternative transcriber
+# Get your API key from: https://deepgram.com/
+DEEPGRAM_AUTH_TOKEN=your_deepgram_token_here
+DEEPGRAM_HOST=api.deepgram.com
+
+# ElevenLabs (TTS) - Text-to-speech
+# Get your API key from: https://elevenlabs.io/
+ELEVENLABS_API_KEY=your_elevenlabs_api_key_here
+ELEVENLABS_API_HOST=api.elevenlabs.io
+
+# OpenAI (LLM) - Language model
+# Get your API key from: https://platform.openai.com/
+OPENAI_API_KEY=your_openai_api_key_here
+OPENAI_MODEL=gpt-3.5-turbo
+
+# Twilio (Telephony) - Phone calls
+# Get your credentials from: https://www.twilio.com/
+TWILIO_ACCOUNT_SID=your_twilio_account_sid
+TWILIO_AUTH_TOKEN=your_twilio_auth_token
+TWILIO_PHONE_NUMBER=your_twilio_phone_number
+
+# Redis (Caching) - Local development
+# Install Redis locally or use a cloud service
+REDIS_URL=redis://localhost:6379
+
+# Sarvam (TTS) - Alternative synthesizer
+# Get your API key from: https://www.sarvam.ai/
+SARVAM_API_KEY=your_sarvam_api_key_here
+
+# InWorld (TTS) - Alternative synthesizer
+# Get your API key from: https://inworld.ai/
+INWORLD_API_KEY=your_inworld_api_key_here
